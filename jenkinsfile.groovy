@@ -4,10 +4,10 @@ node {
        git "git@github.com:aliyaaloca/website.git"
     } 
     stage("Install apache") {
-       sh "ssh ec2-user@${DEVIP}"  sudo yum install httpd -y
+       sh "ssh ec2-user@${DEVIP}  sudo yum install httpd -y"
     }
     stage("start apache")   {
-       sh "ssh ec2-user@${DEVIP}"  sudo systemctl start httpd
+       sh "ssh ec2-user@${DEVIP}  sudo systemctl start httpd"
     }
 
     stage("Copy files") {
@@ -15,6 +15,6 @@ node {
     }
 
     stage("Move files") {
-       sh "ssh ec2-user@${DEVIP}"   sudo cp -f /tmp/index.html  /var/www/html/index.html    
+       sh "ssh ec2-user@${DEVIP}   sudo cp -f /tmp/index.html  /var/www/html/index.html"    
     } 
 }
